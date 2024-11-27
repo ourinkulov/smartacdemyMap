@@ -1,0 +1,313 @@
+@import "./theme.scss";
+
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  padding: 8px;
+  z-index: 99;
+  box-shadow: 8px 0 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  &-menu {
+    &__toggle {
+      &-cont {
+        &__button {
+          @include themify($themes) {
+            background: themed("bodyBackgroundColor");
+            color: themed("textColor");
+          }
+        }
+
+        // &-logo {
+        //   background-color: darken(#333, 10%);
+        // }
+      }
+    }
+
+    &__item {
+      .active {
+        @include themify($themes) {
+          background: themed("toggleBackground");
+          color: themed("bodyBackgroundColor");
+          border-radius: 10px;
+        }
+      }
+
+      &-submenu {
+        &-title {
+          padding: 4px;
+          padding-left: 8px;
+          border-left: 3px solid transparent;
+        }
+
+        .activeSubmenu {
+          @include themify($themes) {
+            background: themed("bodyBackgroundColor");
+            padding: 4px;
+            padding-left: 8px;
+            border-left: 3px solid themed("toggleBackground");
+          }
+        }
+      }
+
+      &-container {
+        position: relative;
+
+        &-title {
+          width: 110px;
+        }
+
+        // &-title:hover  {
+        // }
+
+        &-icon {
+          &-tooltip {
+            border: 1px solid rgb(148, 147, 147);
+            text-align: center;
+            @apply invisible absolute;
+            margin-left: 60px;
+            // opacity: 0;
+            // transition: all 600ms;
+          }
+        }
+      }
+
+      &-container:hover {
+        @include themify($themes) {
+          background: themed("toggleBackground");
+          color: themed("bodyBackgroundColor");
+          border-radius: 10px;
+        }
+      }
+
+      &-container:hover .sidebar-menu__item-container-icon-tooltip {
+        @include themify($themes) {
+          background: themed("toggleBackground");
+          color: themed("bodyBackgroundColor");
+          border-radius: 5px;
+          padding: 8px 10px;
+          // transition: all 600ms;
+          // opacity: 1;
+          // margin-left: 60px;
+        }
+
+        @apply visible z-50;
+      }
+
+      // &-submenu {
+
+      // }
+    }
+  }
+
+  .toggle-btn-section {
+    .toggle-checkbox {
+      justify-content: center;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+
+      .toggle-btn__input {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+      }
+
+      .toggle-btn__input-label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 46px;
+        height: 20px;
+        display: block;
+        border-radius: 23px;
+        position: relative;
+        border: none;
+        margin-top: 2px;
+
+        @include themify($themes) {
+          background-color: themed("toggleBackground");
+        }
+
+        &::after {
+          content: "?";
+          position: absolute;
+          top: 3px;
+          left: 3px;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          transition: 0.3s;
+          box-shadow: 0 5px 10px rgba(153, 153, 153, 0.4);
+          background-color: #fff;
+        }
+      }
+
+      .toggle-btn__input:checked ~ .toggle-btn__input-label {
+        &:after {
+          background: #fff;
+          left: calc(100% - 3px);
+          transform: translateX(-100%);
+        }
+      }
+
+      .toggle-btn__input:checked ~ .toggle-btn__theme {
+        &:after {
+          // theme switch circle background in light theme
+          background: #fff;
+          left: calc(100% - 3px);
+          transform: translateX(-100%);
+        }
+      }
+    }
+  }
+
+  .logo-section {
+    height: 50px;
+    text-decoration: none;
+    display: flex;
+    width: 430px;
+    @include themify($themes) {
+      color: themed("textColor");
+    }
+    font-weight: 600;
+    text-transform: uppercase;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    span {
+      display: inline-block;
+      font-size: 30px;
+      margin: auto;
+    }
+  }
+
+  @include themify($themes) {
+    background: themed("headerFooterBackground");
+    border-right: 1px solid themed("borderColor");
+  }
+
+  &.collapsed {
+    width: 80px;
+
+    .toggle-btn-section {
+      .toggle-checkbox {
+        justify-content: center;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+
+        .toggle-btn__input {
+          height: 0;
+          width: 0;
+          visibility: hidden;
+        }
+
+        .toggle-btn__input-label {
+          cursor: pointer;
+          text-indent: -9999px;
+          width: 46px;
+          height: 20px;
+          display: block;
+          border-radius: 23px;
+          position: relative;
+          border: none;
+          margin-top: 2px;
+
+          @include themify($themes) {
+            background-color: themed("toggleBackground");
+          }
+
+          &::after {
+            content: "?";
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            transition: 0.3s;
+            box-shadow: 0 5px 10px rgba(153, 153, 153, 0.4);
+            background-color: #fff;
+          }
+        }
+
+        .toggle-btn__input:checked ~ .toggle-btn__input-label {
+          &:after {
+            background: #fff;
+            left: calc(100% - 3px);
+            transform: translateX(-100%);
+          }
+        }
+
+        .toggle-btn__input:checked ~ .toggle-btn__theme {
+          &:after {
+            // theme switch circle background in light theme
+            background: #fff;
+            left: calc(100% - 3px);
+            transform: translateX(-100%);
+          }
+        }
+      }
+    }
+
+    .logo-section {
+      height: 50px;
+      text-decoration: none;
+      display: flex;
+      width: 430px;
+      @include themify($themes) {
+        color: themed("textColor");
+      }
+      font-weight: 600;
+      text-transform: uppercase;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      span {
+        display: inline-block;
+        font-size: 30px;
+        margin: auto;
+      }
+    }
+  }
+}
+/*Layout wrapper styles*/
+
+.layout-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  @include themify($themes) {
+    background: themed("bodyBackgroundColor");
+    color: themed("textColor");
+  }
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh);
+  width: 100%;
+}
+
+/*Footer styles*/
+.footer {
+  width: 100%;
+  z-index: 99;
+  height: 78px;
+  display: flex;
+  @include themify($themes) {
+    background: themed("headerFooterBackground");
+    color: themed("textColor");
+  }
+  .footer-content {
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+}

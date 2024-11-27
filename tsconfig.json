@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "*": ["*", "types/*"]
+    },
+    "typeRoots": ["./src/types", "./node_modules/@types", "./node_modules/@testing_library/jest-dom/types", "./node_modules/@testing-library/react/types"],
+    "types": ["jest"],
+    "target": "ES6",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    // "noImplicitAny": false,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "exclude": ["**/*.js", "**/*.jsx", "src/sw*"],
+  "include": ["**/*.ts", "**/*.tsx", "src", "**/*.geojson"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

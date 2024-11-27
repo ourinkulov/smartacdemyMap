@@ -1,0 +1,103 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "./theme.scss";
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,500;1,700&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Montserrat", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: baseline;
+  overflow: hidden;
+}
+
+code {
+  font-family: "Montserrat", "Cantarell", "Fira Sans", "Droid Sans",
+    "Courier New", monospace;
+}
+
+*:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  @include themify($themes) {
+    background: themed("toggleBackground");
+  }
+}
+
+#scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+table::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar > ul::-webkit-scrollbar {
+  width: 3px;
+}
+
+.sidebar > ul::-webkit-scrollbar-thumb {
+  width: 3px;
+
+  @include themify($themes) {
+    background: themed("toggleBackground");
+  }
+}
+
+div::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+// ::-webkit-scrollbar-track {
+//   background: #e0e0e0;
+//   border-radius: 5px;
+// }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #707070b7;
+  border-radius: 6px;
+  width: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  width: 8px;
+}
+
+// .login {
+//   font-family: "Ubuntu", "Montserrat", "Cantarell", "Fira Sans", "Droid Sans",
+//     "Courier New", monospace;
+// }
+#feature-info {
+  font-family: "Montserrat", "Cantarell", "Fira Sans", "Droid Sans",
+    "Courier New", monospace;
+}
+
+::-webkit-calendar-picker-indicator {
+  @include themify($themes) {
+    filter: invert(themed("filterColor")) !important;
+  }
+}
+
+.theme-dark .slick-dots li button::before {
+  color: orange;
+}

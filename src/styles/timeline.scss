@@ -1,0 +1,61 @@
+@import "./theme.scss";
+
+.tl-headline, .tl-text, .tl-text p {
+  font-family: "Montserrat", "Helvetica Neue" !important;
+}
+
+.tl-slider-container-mask {
+  @include themify($themes) {
+    background-color: themed("headerFooterBackground");
+  }
+}
+  
+.tl-headline, .tl-text-content p {
+  @include themify($themes) {
+    color: themed("textColor") !important;
+  }
+}
+
+.tl-timenav,.tl-timenav .tl-headline {
+  @include themify($themes) {    
+    color: themed("darkColor") !important;
+  }
+}
+
+.tl-timeaxis {
+    @include themify($themes) {    
+        background-color: themed("toggleBackground") !important;
+      }
+}
+
+.tl-timeaxis-background {
+    @include themify($themes) {    
+        background-color: themed("toggleBackground") !important;
+      }
+}
+
+.tl-timeline .tl-attribution {
+    display: none;
+}
+
+.tl-menubar button {
+    @include themify($themes) {    
+       color: themed("toggleBackground") !important;
+      }
+}
+
+.tl-timeaxis-tick-text {
+    color: white !important;
+}
+
+.tl-slidenav-icon, .tl-slidenav-title, .tl-slidenav-description {
+  text-shadow: none;
+  @include themify($themes) {    
+    color: themed("toggleBackground") !important;
+  }
+}
+
+.tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-title, 
+.tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-title {
+  text-shadow: none !important;
+}

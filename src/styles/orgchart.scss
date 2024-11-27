@@ -1,0 +1,11 @@
+.orgchart {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 8px;
+        
+        li {
+            padding: 20px 2px 0;
+        }
+    }
+}
